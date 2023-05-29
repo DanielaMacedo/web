@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/css/mostrar.css">
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      
+        <ul class="links">
+            <li><a href="index">Inicio</a></li>
+            <li><a href="alumnos">Alumnos</a></li>
+            <li><a href="proyectos">Proyectos</a></li>
+            
+        </ul>
+        <div class="search">
+            <form action="/buscar" method="GET" class="search-form">
+                <input type="text" name="num_control" placeholder="Buscar por No de control" class="search-input">
+                <button type="submit" class="search-button">Buscar</button>
+              </form>
+        </div>
+       
+        
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <div class="logo"><img src="/img/logo.png" alt=""></div>
+    <div class="dropdown_menu">
+        <li><a href="index">Inicio</a></li>
+        <li><a href="alumnos">Alumnos</a></li>
+        <li><a href="proyectos">Proyectos</a></li>
+      
+        
+    </div>
+</header>
+
+<section id="home">
+  <h1>Alumnos</h1>
+  <p> Los protagonistas de esta historia.</p>
+
+</section>
+    <div class="card-container">
+        <% alumnos.forEach(function(alumno) { %>
+            <div class="card">
+                <img class="card-imagen" src="/img/<%= alumno.fotografia %>" alt="Imagen del alumno">
+                <div class="card-body">
+                  <h3><%= alumno.nombre %> <%= alumno.apellido_paterno %>  <%= alumno.apellido_materno %></h3>
+                  <p><strong>Numero de Control:</strong> <%= alumno.Num_control %></p>
+                  <p><strong>Carrera:</strong> <%= alumno.carrera %></p>
+                  <p><strong>Correo:</strong> <%= alumno.correo %></p>
+                  <p><strong>Descripcion:</strong> <%= alumno.descripcion %></p>
+                  <p><strong>Intereses:</strong> <%= alumno.intereses_academicos %></p>
+                  <p><strong>Objetivos Corto Plazo:</strong> <%= alumno.objetivos_corto_plazo %></p>
+                  <p><strong>Objetivos Largo Plazo:</strong> <%= alumno.objetivos_largo_plazo %></p>
+
+
+                  
+
+
+                  <!-- Agrega aquí los demás campos que deseas mostrar de la tabla alumnos -->
+                  
+                  
+                </div>
+              </div>
+        <% }); %>
+      </div>
+</body>
+</html>

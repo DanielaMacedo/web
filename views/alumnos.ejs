@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <link rel="stylesheet" href="/css/registro.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header>Registro de alumnos</header>
+      <form action="/agregar" class="form" method="post" enctype="multipart/form-data">
+        <div class="input-box">
+          <label>Numero de Control</label>
+          <input type="text" name="num" placeholder="123456789" required />
+        </div>
+
+        <div class="input-box">
+          <label>Nombre(s)</label>
+          <input type="text" name="nombre" placeholder="Nombre" required />
+        </div>
+
+        <div class="input-box">
+          <label>Apellido Paterno</label>
+          <input type="text" name="apepa" placeholder="Apellido Paterno" required />
+        </div>
+
+        <div class="input-box">
+          <label>Apellido Materno</label>
+          <input type="text" name="apema" placeholder="Apellido Materno" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Carrera</label>
+            <input type="text" name="carrera" placeholder="Carrera" required />
+          </div>
+          <div class="input-box">
+            <label>Semestre</label>
+            <input type="number" name="sem" placeholder="1 - 9" required />
+          </div>
+        </div>
+        <div class="input-box">
+          <label>Correo</label>
+          <input type="text" name="email" id="correo" placeholder="Correo Institucional" required />
+          <span id="correo-error" class="error-message"></span>
+        </div>
+        <div class="input-box">
+          <label>Contraseña</label>
+          <input type="text" name="pass" placeholder="*******" required />
+        </div>
+        <div class="input-box">
+          <label>Descripcion Personal</label>
+          <input type="text" name="descripcion" placeholder="" required />
+        </div>
+        <div class="input-box">
+          <label>Intereses Académicos</label>
+          <input type="text" name="intAca" placeholder="" required />
+        </div>
+        <div class="input-box">
+          <label>Habilidades</label>
+          <input type="text" name="hab" placeholder="" required />
+        </div>
+        <div class="input-box">
+          <label>Fortalezas</label>
+          <input type="text" name="fort" placeholder="" required />
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Objetivos a corto plazo</label>
+            <input type="text" name="obcorpla" placeholder="Corto Plazo" required />
+          </div>
+          <div class="input-box">
+            <label>Objetivos a largo plazo</label>
+            <input type="text" name="oblarpla" placeholder="Largo Plazo" required />
+          </div>
+        </div>
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagen" name="file">
+      
+        <button type="submit">Agregar</button>
+        <br>
+        <a href="/alumnos" class="btn-inicio">Cancelar</a>
+        
+      </form>
+    </section>
+    <script>
+      const correoInput = document.getElementById('correo');
+      const correoError = document.getElementById('correo-error');
+    
+      correoInput.addEventListener('input', function() {
+        const correo = correoInput.value;
+        const dominioCorrecto = /@vallarta\.tecmm\.edu\.mx$/i.test(correo);
+    
+        if (!dominioCorrecto) {
+          correoError.textContent = 'El correo debe tener el dominio @vallarta.tecmm.edu.mx';
+        } else {
+          correoError.textContent = '';
+        }
+      });
+    </script>
+  </body>
+</html>

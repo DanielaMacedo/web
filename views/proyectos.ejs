@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <link rel="stylesheet" href="/css/registro.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header>Registro de proyectos</header>
+      
+      <form action="/nuevo" class="form" method="post" enctype="multipart/form-data">
+        <div class="input-box">
+          <label>Numero de Control</label>
+          <input type="text" name="num" placeholder="111111111" required />
+        </div>
+
+        <div class="input-box">
+          <label>Título</label>
+          <input type="text" name="titulo" placeholder="Titulo del proyecto" required />
+        </div>
+
+        <div class="input-box">
+          <label>Descripcion</label>
+          <input type="text" name="descripcion" placeholder="Descripcion" required />
+        </div>
+
+        <div class="input-box">
+          <label>Materia</label>
+          <input type="text" name="mat" placeholder="Materia" required />
+        </div>
+        <div class="input-box">
+          <label>Autor</label>
+          <input type="text" name="autor" placeholder="Autores" required />
+        </div>
+
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagen" name="file">
+      
+        <button type="submit">Agregar</button>
+        <br>
+        <a href="/proyectos" class="btn-inicio">Cancelar</a>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    <link rel="stylesheet" href="/css/biografía.css">
+    <title>Alumnos</title>
+</head>
+<body>
+  
+
+  <div class="container">
+    <h1>Datos del Estudiante</h1>
+    
+    <div class="biografia">
+      <br>
+    <br>
+    <!-- Mostrar la información personal del estudiante -->
+    
+    <div class="alumno-info">
+      <img class="alumno-foto" src="/img/<%= alumno.fotografia %>" alt="Foto del alumno">
+        <div class="alumno-datos">
+          <h2>Datos Personales</h2>
+    <p><strong>Numero de Control:</strong> <%= alumno.Num_control %></p>
+    <p><strong>Nombre:</strong> <%= alumno.nombre %></p>
+    <p><strong>Apellido Paterno:</strong> <%= alumno.apellido_paterno %></p>
+    <p><strong>Apellido Materno:</strong> <%= alumno.apellido_materno %></p>
+    <p><strong>Carrera:</strong> <%= alumno.carrera %></p>
+    <p><strong>Semestre:</strong> <%= alumno.semestre %></p>
+    <p><strong>Correo:</strong> <%= alumno.correo %></p>
+    
+    <!-- Agrega aquí los demás campos que deseas mostrar de la tabla alumnos -->
+
+    <h2>Descripción Personal</h2>
+    <p><%= alumno.descripcion %></p>
+
+    <h2>Intereses Académicos</h2>
+    <p><%= alumno.intereses_academicos %></p>
+
+    <h2>Habilidades</h2>
+    <p><%= alumno.habilidades %></p>
+
+    <h2>Fortalezas</h2>
+    <p><%= alumno.fortalezas %></p>
+
+    <h2>Objetivos a Corto Plazo</h2>
+    <p><%= alumno.objetivos_corto_plazo %></p>
+
+    <h2>Objetivos a Largo Plazo</h2>
+    <p><%= alumno.objetivos_largo_plazo %></p>
+        </div>
+    </div>
+  
+    <br>
+    
+    <a href="index" class="btn-inicio">Ir al Inicio</a>
+    <br>
+    <br>
+    <div class="proyectos">
+      <h2>Proyectos</h2>
+      <div class="card-container">
+        <% proyectos.forEach(function(proyecto) { %>
+        <!-- Mostrar información de los proyectos -->
+        <div class="card">
+          <div class="card-imagen-container">
+            <img class="card-imagen" src="/img/<%= proyecto.imagenes %>" alt="Imagen del proyecto">
+          </div>
+          <div class="card-contenido">
+            <h3><%= proyecto.titulo %></h3>
+            <p><%= proyecto.descripcion %></p>
+            <p><%= proyecto.materia %></p>
+            <p>Autor:<%= proyecto.autor %></p>
+            <!-- Agrega aquí los demás campos que deseas mostrar de la tabla proyectos -->
+          </div>
+          <!-- Agrega este código donde deseas mostrar el botón -->
+
+
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

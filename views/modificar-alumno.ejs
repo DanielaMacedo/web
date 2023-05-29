@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/modificar.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="container">
+        <header>Registro de alumnos</header>
+        <form action="/modificar-alumno" class="form" method="POST" enctype="multipart/form-data">
+            
+          
+          <input type="hidden" name="num" value="<%= alumno.Num_control %>">
+            
+          
+
+          <div class="input-box">
+              <label for="nombre">Nombre:</label>
+              <input type="text" name="nombre" value="<%= alumno.nombre %>">
+            </div>
+            <div class="input-box">
+                <label for="nombre">Apellido Paterno:</label>
+                <input type="text" name="apepa" value="<%= alumno.apellido_paterno %>">
+              </div>
+              <div class="input-box">
+                <label for="nombre">Apellido Materno:</label>
+                <input type="text" name="apema" value="<%= alumno.apellido_materno %>">
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Carrera</label>
+                  <input type="text" name="carrera" placeholder="Carrera" value="<%= alumno.carrera %>" required />
+                </div>
+                <div class="input-box">
+                  <label>Semestre</label>
+                  <input type="number" name="sem" value="<%= alumno.semestre %>" placeholder="1 - 9" required />
+                </div>
+              </div>
+              
+            <div class="input-box"> 
+              <label for="correo">Correo:</label>
+              <input type="email" name="email" value="<%= alumno.correo %>">
+            </div>
+            <div class="input-box">
+                <label for="nombre">Contraseña:</label>
+                <input type="text" name="pass" value="<%= alumno.contrasena %>">
+              </div>
+              <div class="input-box">
+                <label for="nombre">Descripcion personal:</label>
+                <input type="text" name="descripcion" value="<%= alumno.descripcion %>">
+              </div>
+              <div class="input-box">
+                <label>Intereses Académicos</label>
+                <input type="text" name="intAca" value="<%= alumno.intereses_academicos %>">
+              </div>
+              <div class="input-box">
+                <label>Habilidades</label>
+                <input type="text" name="hab" value="<%= alumno.habilidades %>">
+              </div>
+              <div class="input-box">
+                <label>Fortalezas</label>
+                <input type="text" name="fort" value="<%= alumno.fortalezas %>">
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Objetivos a corto plazo</label>
+                  <input type="text" name="obcorpla" value="<%= alumno.objetivo_corto_plazo %>" >
+                </div>
+                <div class="input-box">
+                  <label>Objetivos a largo plazo</label>
+                  <input type="text" name="oblarpla" value="<%= alumno.objetivo_largo_plazo %>">
+                </div>
+              </div>
+              <div class="input-box">
+                <label for="nombre">Fotografia:</label>
+                <input type="file" id="imagen" name="file" value="<%= alumno.fotografia %>">
+              </div>
+            <!-- Agrega los demás campos del formulario -->
+            <button type="submit">Guardar cambios</button>
+            <br>
+        <a href="/homedoc" class="btn-inicio">Cancelar</a>
+          </form>
+      </section>
+</body>
+</html>

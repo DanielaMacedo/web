@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inicio - Anuario</title>
+
+  <link rel="stylesheet" href="/css/homealu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+    <header>
+      <div class="nav"> <ul class="links">
+        <li><a href="index">Inicio</a></li>
+        <li><a href="alumnos">Alumnos</a></li>
+        <li><a href="proyectos">Proyectos</a></li>
+        
+    </ul>
+    
+   
+</div>
+<div class="logo"><img src="/img/logo.png" alt=""></div>
+<div class="dropdown_menu">
+    <li><a href="index">Inicio</a></li>
+    <li><a href="alumnos">Alumnos</a></li>
+    <li><a href="proyectos">Proyectos</a></li>
+    <br></div>
+        <div class="navbar">
+
+
+        
+            <div class="user-info">
+                <img src="/img/<%= alumno.fotografia %>" alt="Foto de perfil">
+                
+            </div>
+            <div class="logo"><img src="/img/logo.png" alt=""></div>
+            <ul class="botones">
+                <li><button onclick="window.location.href='/homealu'">Home</button></li>
+                <li><button onclick="window.location.href='/proyectos/nuevo'">Nuevo Proyecto</button></li>
+                <li><button onclick="window.location.href='/'">Cerrar Sesion</button></li>
+            </ul>
+            <div class="toggle_btn">
+              <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><button onclick="window.location.href='/homealu'">Home</button></li>
+            <li><button onclick="window.location.href='/proyectos/nuevo'">Nuevo Proyecto</button></li>
+            <li><button onclick="window.location.href='/'">Cerrar Sesion</button></li>
+        </div>
+    </header>
+    <main>
+      <br>
+      <br>
+      <br>
+        <section id="home">
+            <!-- Contenido de la página principal -->
+            <h1>  ¡Hola <%= alumno.nombre %>, bienvenid@ a tu viaje educativo!</h1>
+            <p> Prepárate para descubrir, aprender y crear recuerdos inolvidables en este emocionante capítulo de tu vida. <br> Aquí encontrarás un vistazo a tus proyectos en un solo lugar. </p>
+           <br>
+
+            <div class="contenedor">
+              <% proyectos.forEach(function(proyecto) { %>
+                <div class="card">
+                  <br>
+                    <img class="card-imagen" src="/img/<%= proyecto.imagenes %>" alt="Imagen del proyecto">
+                  
+                  <div class="contenido"> 
+                  
+                    <h3><%= proyecto.titulo %></h3>
+                    <p><%= proyecto.descripcion %></p>
+                    
+                    <p> <strong>Autor:</strong> <%= proyecto.autor %></p>
+                    <!-- Agrega más información del proyecto si es necesario -->
+                    <br>
+                    <div class="acciones">
+                      <form action="/eliminar-proyecto" method="POST">
+                        <input type="hidden" name="proyectoId" value="<%= proyecto.id %>">
+                        <button type="submit">Eliminar</button>
+                      </form>
+                      <br>
+                      <form action="/modificar-proyecto" method="GET">
+                        <input type="hidden" name="id" value="<%= proyecto.id %>">
+                        <button type="submit"> Editar </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+            
+          </section>
+    </main>
+ 
+
+  <footer>
+    <p>© 2023 Anuario. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function (){
+    dropDownMenu.classList.toggle('open')
+    const isOpen = dropDownMenu.classList.contains('open')
+
+    toggleBtnIcon.classList = isOpen
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars'
+    }
+</script>
+</body>
+</html>

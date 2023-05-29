@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inicio - Anuario</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/homedoc.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ </head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="user-info">
+                <img src="/img/fotov.jpg" alt="Foto de perfil">
+                
+                <ul class="links">
+                  
+                  
+                  <li><a href="hproyect">Proyectos</a></li>
+                  
+              </ul>
+            </div>
+            <div class="logo"><img src="/img/logo.png" alt=""></div>
+            <ul class="botones">
+              <li><button onclick="window.location.href='/homedoc'">Alumnos</button></li>
+                <li><button onclick="window.location.href='/hproyect'">Proyectos</button></li>
+                <li><button onclick="window.location.href='/alumnos/agregardoc'">Nuevo Alumno</button></li>
+                <li><button onclick="window.location.href='/proyectos/nuevodoc'">Nuevo Proyecto</button></li>
+             
+                <li><button onclick="window.location.href='/'">Cerrar Sesion</button></li>
+            </ul>
+              <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><button onclick="window.location.href='/'">Inicio</button></li>
+            <li><button onclick="window.location.href='/alumnos/agregardoc'">Nuevo Alumno</button></li>
+            <li><button onclick="window.location.href='/proyectos/nuevodoc'">Nuevo Proyecto</button></li>
+            <li><button onclick="window.location.href='/'">Cerrar Sesion</button></li>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Alumnos</h1>
+  <p>A continuacion, puedes ver la tabla de alumnos:</p>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido </th>
+        <th>Correo</th>
+        <th>Número de Control</th>
+        <th>Carrera</th>
+        <th>Semestre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%alumnos.forEach(alumno =>{%>
+        <tr>
+          <td><%= alumno.nombre %></td>
+          <td><%= alumno.apellido_paterno %></td>
+          <td><%= alumno.correo %></td>
+          <td><%= alumno.Num_control %></td>
+          <td><%= alumno.carrera %></td>
+          <td><%= alumno.semestre %></td>
+          <td>
+            <form action="/eliminar-alumno" method="POST">
+              <input type="hidden" name="alumnoId" value="<%= alumno.Num_control %>">
+              <button type="submit" class="btn-eliminar">Eliminar</button>
+            </form>
+            <br>
+            <form action="/modificar-alumno" method="get">
+              <input type="hidden" name="id" value="<%= alumno.Num_control %>">
+              <button type="submit" class="btn-editar">Editar</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+    </table>
+          </section>
+
+    
+
+          
+          
+    </main>
+ 
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function (){
+    dropDownMenu.classList.toggle('open')
+    const isOpen = dropDownMenu.classList.contains('open')
+
+    toggleBtnIcon.classList = isOpen
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars'
+    }
+</script>
+</body>
+</html>
+

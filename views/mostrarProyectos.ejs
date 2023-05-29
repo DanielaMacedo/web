@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/css/mostrar.css">
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+        <ul class="links">
+            <li><a href="index">Inicio</a></li>
+            <li><a href="alumnos">Alumnos</a></li>
+            <li><a href="proyectos">Proyectos</a></li>
+            
+        </ul>
+        
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <div class="logo"><img src="/img/logo.png" alt=""></div>
+    <div class="dropdown_menu">
+        <li><a href="index">Inicio</a></li>
+        <li><a href="alumnos">Alumnos</a></li>
+        <li><a href="proyectos">Proyectos</a></li>
+        
+        <li><button onclick="window.location.href='/alumnos/agregar'">Registrarse</button></li>
+        <li><button onclick="window.location.href='/login'">Iniciar Sesion</button></li>
+    </div>
+</header>
+
+
+    <section id="home">
+      <h1>Proyectos</h1>
+    <p>Innovación y creatividad en acción.</p>
+      
+  </section>
+
+    <div class="card-container">
+        <% proyectos.forEach(function(proyecto) { %>
+          <div class="card">
+            <img class="card-imagen" src="/img/<%= proyecto.imagenes %>" alt="Imagen del proyecto">
+            <div class="card-body">
+              <h3><%= proyecto.titulo %></h3>
+              <p><%= proyecto.descripcion %></p>
+              <p> <strong>Autor:</strong> <%= proyecto.autor %></p>
+              <!-- Agrega aquí los demás campos que deseas mostrar del proyecto -->
+            </div>
+          </div>
+        <% }); %>
+    </div>
+</body>
+</html>
